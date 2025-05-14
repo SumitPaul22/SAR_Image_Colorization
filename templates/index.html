@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAR Image Colorization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SAR Image Colorization</h1>
+        </header>
+        <main>
+            <form id="uploadForm" class="upload-form">
+                <label for="imageFile" class="file-label">Choose a SAR Image</label>
+                <input type="file" id="imageFile" accept="image/*" required>
+                <button type="submit">Upload & Colorize</button>
+                <button type="button" id="cancelButton">Cancel</button>
+                <p id="no-file-message" class="no-file-message"></p>
+            </form>
+
+            <div id="loadingSpinner" style="display: none;">Loading...</div>
+
+            <div id="previewContainer" class="preview-container">
+                <h2>Uploaded Image</h2>
+                <img id="uploadedImage" src="" alt="Uploaded Image" style="display: none;">
+            </div>
+
+            <div id="result" class="result">
+                <h2>Colorized Image</h2>
+                <img id="colorizedImage" src="" alt="Colorized Image" style="display: none;">
+                <a id="downloadLink" href="" download="colorized_image.png" style="display: none;">Download Image</a>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2024 SAR Image Colorization for Smart India Hackathon.</p>
+        </footer>
+    </div>
+
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Error</h2>
+            </div>
+            <div class="modal-body">
+                <p id="error-message"></p>
+            </div>
+            <button class="modal-close" onclick="closeErrorModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
